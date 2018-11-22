@@ -62,3 +62,4 @@ typings/
 
 # TypeScript output
 **/*.js
+**/*.js.map
