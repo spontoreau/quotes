@@ -21,12 +21,14 @@
   "homepage": "https://github.com/spontoreau/typescript-cosmosdb#readme",
   "dependencies": {
     "@azure/cosmos": "^2.0.5",
+    "dotenv": "^6.1.0",
     "io-ts": "^1.4.2",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0"
   },
   "devDependencies": {
+    "@types/dotenv": "^6.1.0",
     "@types/koa": "^2.0.47",
     "@types/koa-bodyparser": "^5.0.2",
     "@types/koa-router": "^7.0.35",

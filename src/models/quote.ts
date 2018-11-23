@@ -8,7 +8,9 @@ type Quote = Readonly<{
 }>
 
 const getCosmosClient = () : CosmosClient => {
-    return new CosmosClient({ endpoint: "", auth: { masterKey: "" }});
+    const endpoint = process.env.ENDPOINT ? process.env.ENDPOINT : "";
+    const masterKey = process.env.KEY ? process.env.KEY : "";
+    return new CosmosClient({ endpoint, auth: { masterKey }});
 }
 
 const getCollection = (client: CosmosClient) => (database: string) => (collection: string) => {
@@ -17,7 +19,7 @@ const getCollection = (client: CosmosClient) => (database: string) => (collectio
 
 const getQuote = async () : Promise<ReadonlyArray<Quote>> => {
     const querySpec: SqlQuerySpec = {
-        query: "SELECT * FROM root WHERE r.moderate=@moderate",
+        query: "SELECT * FROM root WHERE root.moderate=@moderate",
         parameters: [{
             name: "@moderate",
             value: false
