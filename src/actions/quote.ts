@@ -1,5 +1,5 @@
 import { Context } from "koa";
-import { getQuote, Quote, insertQuote } from "../models/quote";
+import { getQuote, insertQuote } from "../models/quote";
 import * as t from "io-ts";
 
 const retrieveAllQuotes = async (context: Context) => {

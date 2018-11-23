@@ -19,7 +19,7 @@ const getCollection = (client: CosmosClient) => (database: string) => (collectio
 
 const getQuote = async () : Promise<ReadonlyArray<Quote>> => {
     const querySpec: SqlQuerySpec = {
-        query: "SELECT * FROM root WHERE root.moderate=@moderate",
+        query: "SELECT root.author, root.quote FROM root WHERE root.moderate=@moderate",
         parameters: [{
             name: "@moderate",
             value: false
