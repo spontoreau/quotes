@@ -1,12 +1,11 @@
 import { CosmosClient, SqlQuerySpec } from "@azure/cosmos";
-import { createQuote } from "../actions/quote";
 
 type Quote = Readonly<{
     author: string,
     quote: string,
     language: string,
     moderate: boolean,
-}>;
+}>
 
 const getCosmosClient = () : CosmosClient => {
     return new CosmosClient({ endpoint: "", auth: { masterKey: "" }});
@@ -14,7 +13,7 @@ const getCosmosClient = () : CosmosClient => {
 
 const getCollection = (client: CosmosClient) => (database: string) => (collection: string) => {
     return client.database(database).container(collection);
-};
+}
 
 const getQuote = async () : Promise<ReadonlyArray<Quote>> => {
     const querySpec: SqlQuerySpec = {
@@ -40,4 +39,5 @@ const insertQuote = async (quote: Quote) => {
 export {
     Quote,
     getQuote,
+    insertQuote
 }
