@@ -36,9 +36,6 @@ const insertQuote = async (quote: Quote) => {
     const client = getCosmosClient();
     const collection = getCollection(client)("QuoteDB")("Quote");
     const { body } = await collection.items.create(quote);
-    if(body !== undefined) {
-        body.id
-    }
     return body;
 }
 
