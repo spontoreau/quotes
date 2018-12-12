@@ -1,5 +1,5 @@
 import { Route } from "./infrastructure/getRouter";
-import { retrieveAllQuotes, createQuote } from "./actions/quote";
+import { retrieveAllQuotes, createQuote } from "./actions";
 import { HttpMethod } from "./infrastructure/httpMethod";
 
 const routes: ReadonlyArray<Route> = [

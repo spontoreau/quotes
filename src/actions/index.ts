@@ -1,5 +1,5 @@
 import { Context } from "koa";
-import { getQuote, insertQuote } from "../models/quote";
+import { getQuote, insertQuote } from "../models";
 import * as t from "io-ts";
 
 const retrieveAllQuotes = async (context: Context) => {
@@ -27,7 +27,7 @@ const createQuote = async (context: Context) =>  {
 }
 
 const recreateContext = (context: Context) => (status: number) => (body: any) : Context => {
-    context.status = status;
+    context.status = status; //TODO: Clone the context create an issue. Need to be changed
     context.body = body;
     return context;
 }
